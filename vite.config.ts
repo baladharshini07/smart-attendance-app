@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/smart-attendance-app/",   // ✅ ADD THIS LINE
+  base: "/SMART-ATTENDANCE-APP/",
 
   server: {
     host: "::",
@@ -13,8 +13,8 @@ export default defineConfig(({ mode }) => ({
 
   plugins: [
     react(),
-    mode === "development" && componentTagger()
-  ].filter(Boolean),
+    ...(mode === "development" ? [componentTagger()] : [])
+  ],
 
   resolve: {
     alias: {
